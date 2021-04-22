@@ -5,6 +5,7 @@ import Contact from "./components/Contact";
 import AlbumsList from "./components/AlbumsList";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AlbumDetails from "./components/AlbumDetails";
 
 const albumsInfo = [
   {
@@ -88,6 +89,12 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/contact' component={Contact} />
+        <Route
+          path='/albums/:id'
+          render={(routeProps) => (
+            <AlbumDetails routeProps={routeProps} albums={albumsInfo} />
+          )}
+        />
         <Route
           path='/albums'
           render={() => <AlbumsList albums={albumsInfo} />}
